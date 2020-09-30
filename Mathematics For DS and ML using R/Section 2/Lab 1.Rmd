@@ -1,0 +1,48 @@
+---
+title: "Lab 1"
+output: html_document
+---
+
+```{r}
+
+library(tidyverse)
+
+data = mpg
+
+# 1. a) head(data)
+#    b) print(data[1:6, ])
+#    c) splice(data, 1:6)
+
+# 2.
+# filteredData = data %>%
+#   dplyr::filter(class == 'compact') %>%
+#   dplyr::select(class, cty) %>% 
+#   dplyr::group_by(class) %>% 
+#   dplyr::summarise(mean.cty = mean(cty))
+# 
+# print(filteredData)
+
+# 3.
+# filteredData = data %>% 
+#   dplyr::select(manufacturer, cyl, class, cty, hwy) %>% 
+#   dplyr::mutate(mean.hwyToCyl = (hwy / cyl)) %>% 
+#   dplyr::group_by(manufacturer, class, cyl) %>% 
+#   dplyr::summarise(mean.hwy = mean(hwy), hwy.per.cyl = mean(mean.hwyToCyl))
+# 
+# print(filteredData)
+
+# 4.
+library(esquisse)
+library(ggplot2)
+
+filteredData = data %>%
+  dplyr::filter(year == 2008) %>% 
+  dplyr::select(hwy, cty)
+
+ggplot(filteredData) +
+ aes(x = cty, y = hwy) +
+ geom_point(size = 1L, colour = "#0c4c8a") +
+ theme_minimal()
+
+```
+
