@@ -1,0 +1,157 @@
+---
+title: "Start"
+output: html_document
+---
+
+## R Objects
+- Vectors
+- Lists
+- Matrices
+- Arrays
+- Factors
+- Data Frames
+
+# Logical TRUE, FALSE
+```{r}
+v = TRUE
+print(class(v))
+```
+
+
+# Numeric
+```{r}
+x = 23
+y = 23.33
+print(class(x))
+print(class(y))
+```
+
+
+# Integer
+```{r}
+x = 23L
+print(class(x))
+```
+
+
+# Complex
+```{r}
+x = 23+3i
+print(class(x))
+```
+
+
+# Character => Character Vectors are strings
+```{r}
+x = "HELLO"
+print(class(x))
+```
+```{r}
+x = charToRaw("HELLO")
+print(class(x))
+```
+
+
+# Create a Vector => c stands for concat or combine
+```{r}
+# Character Vector
+x = c("A", "B", "C")
+# Numeric Vector
+y = c(1, 2, 3)
+print(class(x))
+print(class(y))
+
+x = list(c(1, 2, 3), "A", 23.2)
+print(class(x))
+```
+
+
+
+# Matrices
+```{r}
+x = matrix(c(1, 2, 3, 4, 5, 6), nrow = 2, ncol = 3, byrow = TRUE)
+print(x)
+```
+
+
+
+
+# Arrays
+R does recycling here. Vector of only two values is entered, but dimensions are set to 3, so first value will be recycled and used as 3rd value.
+```{r}
+
+x = array(c('green', 'yellow', 'red'), dim = c(4, 3, 1))
+print(x)
+
+```
+
+
+# Factors
+Works like an advanced set.
+```{r}
+
+x = c('yellow', 'red', 'green', 'green', 'yellow', 'pink')
+factorX = factor(x)
+print(factorX)
+print(nlevels(factorX))
+```
+
+# Data Frames
+Data Frames are tabular data object. Unlike a matrix, each column can contain different modes of data. It is a list of vectors of equal length. 
+There is no null in R. NA should be entered for missing values
+```{r}
+
+x = data.frame(
+  names  = c('A', 'B', 'C'),
+  height = c(12L, 13L, 14L),
+  weight = c(44, 55, NA)
+)
+print(x)
+```
+
+
+# Functions
+```{r}
+myFunction = function(name) {
+  print(paste('Hello', name))
+}
+
+myFunction('Dhananjay')
+```
+
+#Loops
+```{r}
+# While Loop
+vec = c(1, 2, 3, 4)
+i = 1
+while(i <= length(vec)) {
+  print(vec[i])
+  i = i + 1
+}
+```
+
+```{r}
+# For Loop
+vec = c(1, 2, 3, 4)
+for (counter in 1: length(vec)) {
+  print(vec[counter])
+}
+
+# Conditional Statement
+for (counter in 1: length(vec)) {
+  if (vec[counter] != 2) {
+    print(vec[counter]) 
+  }
+}
+
+```
+
+
+
+
+
+
+
+
+
+
