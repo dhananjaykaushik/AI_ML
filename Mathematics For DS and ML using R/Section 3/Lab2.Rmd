@@ -1,0 +1,98 @@
+---
+title: "Lab2"
+output: html_document
+---
+
+## 1.
+```{r}
+v1 = c(3, 5)
+print(-3 * v1)
+```
+
+## 2.
+```{r}
+v2 = c(4, 2)
+print(v1 + v2)
+```
+
+## 3.
+```{r}
+print(v2 + 2 * v1)
+```
+
+## 4.
+```{r}
+library(tidyverse)
+vector_addition_plot_2d = function(v1, v2, xlim, ylim) {
+  v3 = v1 + v2
+  
+  # Plotting v1
+  plot(v1[1], v1[2], type = 'p', xlim = xlim, ylim = ylim, xlab = '', ylab = '')
+  arrows(x0 = 0, y0 = 0, x1 = v1[1], y1 = v1[2], col = 'blue')
+  
+  # Plotting v2
+  arrows(x0 = v1[1], y0 = v1[2], x1 = v3[1], y1 = v3[2], col = 'green')
+  
+  # Plotting v3
+  arrows(x0 = 0, y0 = 0, x1 = v3[1], y1 = v3[2], col = 'red')
+}
+
+vector_addition_plot_2d(v1 = v1, v2 = v2, c(0, 10), c(0, 10))
+```
+
+
+## 5.
+```{r}
+v3 = c(0, 4, 3)
+v4 = c(4, 7, 5)
+print(v3 + v4)
+```
+
+
+## 6.
+```{r}
+library(tidyverse)
+vector_addition_plot_3d = function(vec1, vec2, xax, yax, zax, phi, theta) {
+  points3D(x = vec1[1], y = vec1[2], z = vec1[3], col = 'red',
+           xlim = xax, ylim = yax, zlim = zax,
+           xlab = "x", ylab = "y", zlab = "z",
+           phi = phi,
+           theta = theta)
+  text3D(x = vec1[1], y = vec1[2], z = vec1[3]+0.25,
+         labels = paste("(",vec1[1],",",vec1[2],",",vec1[3],")", sep=""), add = TRUE)
+  arrows3D(x0=0, y0=0, z0=0, x1=vec1[1], y1=vec1[2], z1=vec1[3], lwd = 2, col = 'blue', 
+           add = TRUE)
+  
+  points3D(x = vec1[1]+vec2[1], y = vec1[2]+vec2[2], z = vec1[3]+vec2[3], col = 'green',
+           xlim = xax, ylim = yax, zlim = zax,
+           xlab = "x", ylab = "y", zlab = "z",
+           add = TRUE)
+  arrows3D(x0=vec1[1], y0=vec1[2], z0=vec1[3], x1=vec1[1]+vec2[1], y1=vec1[2]+vec2[2], 
+           z1=vec1[3]+vec2[3], lwd = 2, col = 'red', add = TRUE)
+  
+  vec3 <- vec1 + vec2
+  points3D(x = vec3[1], y = vec3[2], z = vec3[3], col = 'red',
+           xlim = xax, ylim = yax, zlim = zax,
+           xlab = "x", ylab = "y", zlab = "z",
+           add = TRUE)
+  text3D(x = vec3[1], y = vec3[2], z = vec3[3],
+         labels = paste("(",vec3[1],",",vec3[2],",",vec3[3],")", sep=""), add = TRUE)
+  arrows3D(x0=0, y0=0, z0=0, x1=vec3[1], y1=vec3[2], z1=vec3[3], lwd = 2, col = 'green', 
+           add = TRUE)
+}
+vector_addition_plot_3d(vec1 = v3, vec2 = v4, c(0, 10), c(0, 10), c(0, 10), 0, -20)
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+

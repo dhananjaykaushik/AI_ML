@@ -1,0 +1,22 @@
+---
+title: "Lab 4"
+output: html_document
+---
+
+```{r}
+# 1.
+A = matrix(c(3, 1, 6, 7, 2, 4, 9, 6, 2), nrow = 3, byrow = F)
+
+# 2.
+# Transpose
+t(A)
+
+# 3.
+# Inverse
+solve(A)
+
+# 4.
+round(A %*% solve(A))
+
+```
+

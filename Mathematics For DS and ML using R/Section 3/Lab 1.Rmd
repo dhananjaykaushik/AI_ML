@@ -1,0 +1,42 @@
+---
+title: "Lab 1"
+output: html_document
+---
+
+# 1.
+```{r}
+value = matrix(1:12, nrow = 3, ncol = 4, byrow = T)
+print(value)
+print(value[2, 4])
+```
+#2
+```{r}
+v1 = c(4, 8)
+v2 = c(2, 3)
+plot(x=v1[1], y=v1[2], xlim=c(0, 10), ylim=c(0, 10))
+arrows(x0 = 0, y0 = 0, x1 = v1[1], y1 = v1[2])
+points(v2[1], v2[2], col='blue')
+arrows(x0 = 0, y0 = 0, x1 = v2[1], y1 = v2[2], col='blue')
+```
+
+# 3
+```{r}
+v1 = c(4, 8)
+v2 = c(4, 11)
+plot(x=v1[1], y=v1[2], xlim=c(0, 12), ylim=c(0, 12))
+arrows(x0 = 0, y0 = 0, x1 = v1[1], y1 = v1[2])
+points(v2[1], v2[2], col='blue')
+arrows(x0 = 0, y0 = 0, x1 = v2[1], y1 = v2[2], col='blue')
+```
+
+#4
+```{r}
+v3 = c(2, 5, 8)
+# install.packages('plot3D')
+library(plot3D)
+points3D(x = v3[1], y = v3[2], z = v3[3], xlim=c(0, 12), ylim=c(0, 12), zlim=c(0, 12))
+arrows3D(x0 = 0, y0 = 0, z0 = 0, x1 = v3[1], y1 = v3[2], z1 = v3[3], col='blue', add=TRUE)
+```
+
+#5
+Vector is a matrix of only one row or one column

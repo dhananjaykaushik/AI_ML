@@ -1,0 +1,22 @@
+---
+title: "Lab 3"
+output: html_document
+---
+## 1.
+```{r}
+A = matrix(1:12, nrow = 3, byrow = T)
+B = matrix(1:8, nrow = 4, byrow = F)
+```
+## 2.
+A and B cannot be added or subtracted as they have do not have same dimensions
+
+## 3.
+```{r}
+C = matrix(13:24, nrow = 3, byrow = T)
+print(A + C)
+```
+## 4.
+```{r}
+print(A %*% B)
+```
+

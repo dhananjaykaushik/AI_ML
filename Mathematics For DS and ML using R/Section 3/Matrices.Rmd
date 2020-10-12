@@ -1,0 +1,57 @@
+---
+title: "Matrices"
+output: html_document
+---
+
+## Matrix Operations
+```{r}
+
+m1 = matrix(c(2, 1, 2, 3, 4, 3, 6, 2, 6), nrow = 3, ncol = 3, byrow = T)
+m2 = matrix(c(3, 4, 5, 1, 2, 6, 9, 6, 1), nrow = 3, ncol = 3, byrow = T)
+
+# Matrix Addition
+m3 = m1 + m2
+# Matrix Subtraction
+m4 = m1 - m2
+# Scalar Matrix Subtraction
+m5 = 4 * m1
+
+# Matrix Multiplication
+m6  = m5 * m4 # element-wise multiplication
+m6  = m5 %*% m4 # True matrix multiplication
+
+```
+
+## Matrxix Transpose
+```{r}
+Tm1 = t(m1)
+
+print(m1)
+print(Tm1)
+```
+
+## Matrxix Inverse
+```{r}
+m2 = matrix(1:4, nrow = 2, byrow = T)
+# Im2 = m2^-1 # Element wise reciprocation
+Im2 = solve(m2)
+
+print(m2)
+print(Im2)
+```
+
+## Identity Matrix
+```{r}
+m2 %*% Im2
+# e-16 is effectively 0, Just some machine error which causes this
+round(m2 %*% Im2)
+# Rounding fixes this
+
+
+# Creating Identity matrix
+m1 = diag(3)
+
+# M I = M
+m2 %*% diag(2)
+```
+
