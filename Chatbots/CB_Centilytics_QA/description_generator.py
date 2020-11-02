@@ -6,7 +6,7 @@ import os
 output_file_path = './output.txt'
 root_dir = '../../../centilytics/centilytics-v2/local-s3/api-resources/'
 
-content_string = 'Centilytics Description'
+content_string = ''
 
 print('Combining all descriptions............')
 
@@ -26,7 +26,7 @@ for filepath in glob.iglob(root_dir + '**/description.json', recursive=True):
             description_file_data = json.load(description_file)
             if description_file_data and 'checkDescription' in description_file_data and 'description' in description_file_data['checkDescription']:
                 check_description = description_file_data['checkDescription']
-                content_string += '\n\n{}\n'.format(
+                content_string += '\n{} '.format(
                     insight_file_data['text'].strip())
                 content_string += check_description['description'].strip()
                 # .encode('utf-8', 'ignore')
